@@ -55,6 +55,8 @@ helpMessage ="""●▬▬▬▬▬▬▬▬▬▬▬▬▬▬●\n ♞♞♞Ɇs�
 ➤[Ginfo]        Group Info
 ➤[Absen]        Cek Respon Bot
 ➤[Speed]        Cek Kecepatan Bot
+➤[Creator]      Creator bot
+➤[Spam @]       Mengirim spam ke target
 ➤[Up]           Fungsi Spam Chat
 ➤[Tagall]       Mention Semua User
 ➤[Banlist]      Cek List Akun Banned
@@ -75,10 +77,10 @@ helpMessage ="""●▬▬▬▬▬▬▬▬▬▬▬▬▬▬●\n ♞♞♞Ɇs�
 ➤[Bye _namabot] Leave Bot
 """
 
-Setgroup =""" 
+Setgroup ="""●▬▬▬〆Status bot〆▬▬▬●
 
 [Protect Group]
-♖  Gr on/off
+♖  Bankai on/off
 [Mid Via Contact]
 ♖  Contact on/off
 [Cancel All Invited]
@@ -100,7 +102,7 @@ Hmid = ke.getProfile().mid
 Imid = ku.getProfile().mid
 
 Bots=[mid,Amid,Bmid,Cmid,Dmid,Emid,Fmid,Gmid,Hmid,Imid,"ufdb348d53532a57228f045ecfaa00f8d"]
-admin=["ufdb348d53532a57228f045ecfaa00f8d"]
+admin=["ufdb348d53532a57228f045ecfaa00f8d","u08124dd7fc3ce40d4d7ffff9533653a9","ue5060e54a4ed380dcafd0a2213592ad0","ua044c625da53442ff1040e30bfb1ee28","u93c7c5d46bc99b92c09faede05b7e8b6","u6660a5ab23e58650e107243d706ae727","ua7ab78360d15bb06bd61f4311ffc078d","u0db0acb862af364edda273a975ee589b","u0d3300929098eab5efb923ac32f8f7e3","u3c239a612e44e23e5ba887045dbbaa60","ubbc139cd574b65ec09610bf0f7cedfb1","u3e7a636610c82444e42a77384887441a","uf53069091adb4bad3b31bc516daa1086"]
 wait = {
     'contact':False,
     'autoJoin':True,
@@ -804,47 +806,29 @@ def bot(op):
                    if msg.contentMetadata["mid"] in wait["commentBlack"]:
                         del wait["commentBlack"][msg.contentMetadata["mid"]]
                         cl.sendText(msg.to,"deleted")
-                        ki.sendText(msg.to,"deleted")
-                        kk.sendText(msg.to,"deleted")
-                        kc.sendText(msg.to,"deleted")
                         wait["dblack"] = False
 
                    else:
                         wait["dblack"] = False
                         cl.sendText(msg.to,"It is not in the black list")
-                        ki.sendText(msg.to,"It is not in the black list")
-                        kk.sendText(msg.to,"It is not in the black list")
-                        kc.sendText(msg.to,"It is not in the black list")
                elif wait["wblacklist"] == True:
                    if msg.contentMetadata["mid"] in wait["blacklist"]:
                         cl.sendText(msg.to,"already")
-                        ki.sendText(msg.to,"already")
-                        kk.sendText(msg.to,"already")
-                        kc.sendText(msg.to,"already")
                         wait["wblacklist"] = False
                    else:
                         wait["blacklist"][msg.contentMetadata["mid"]] = True
                         wait["wblacklist"] = False
                         cl.sendText(msg.to,"added")
-                        ki.sendText(msg.to,"added")
-                        kk.sendText(msg.to,"added")
-                        kc.sendText(msg.to,"added")
 
                elif wait["dblacklist"] == True:
                    if msg.contentMetadata["mid"] in wait["blacklist"]:
                         del wait["blacklist"][msg.contentMetadata["mid"]]
                         cl.sendText(msg.to,"deleted")
-                        ki.sendText(msg.to,"deleted")
-                        kk.sendText(msg.to,"deleted")
-                        kc.sendText(msg.to,"deleted")
                         wait["dblacklist"] = False
 
                    else:
                         wait["dblacklist"] = False
                         cl.sendText(msg.to,"It is not in the black list")
-                        ki.sendText(msg.to,"It is not in the black list")
-                        kk.sendText(msg.to,"It is not in the black list")
-                        kc.sendText(msg.to,"It is not in the black list")
                elif wait["contact"] == True:
                     msg.contentType = 0
                     cl.sendText(msg.to,msg.contentMetadata["mid"])
@@ -2000,7 +1984,7 @@ def bot(op):
                         return
                     for jj in matched_list:
                         try:
-                            klist=[ki,kk,kc]
+                            klist=[cl,ki,kk,kc,ks,ka,kc,kb,ko,ke,ku]
                             kicker=random.choice(klist)
                             kicker.kickoutFromGroup(msg.to,[jj])
                             print (msg.to,[jj])
@@ -2029,7 +2013,7 @@ def bot(op):
                         for target in targets:
                           if target not in Bots:
                             try:
-                                klist=[ki,kk,kc,ks,ka]
+                                klist=[cl,ki,kk,kc,ks,ka,kc,kb,ko,ke,ku]
                                 kicker=random.choice(klist)
                                 kicker.kickoutFromGroup(msg.to,[target])
                                 print (msg.to,[g.mid])
@@ -2055,12 +2039,12 @@ def bot(op):
                        else:
                            for target in targets:
                                 try:
-                                    klist=[cl,ki,kk,kc]
+                                    klist=[cl,ki,kk,kc,ks,ka,kc,kb,ko,ke,ku]
                                     kicker=random.choice(klist)
                                     kicker.kickoutFromGroup(msg.to,[target])
                                     print (msg.to,[g.mid])
                                 except:
-                                    ki.sendText(msg.to,"Target sudah lenyap")
+                                    ki.sendText(msg.to,"Target sudah lenyap, Aizen-sama")
         #----------------Fungsi Kick User Target Finish----------------------#      
             elif "Blacklist @ " in msg.text:
 	      if msg.from_ in admin:
@@ -2175,17 +2159,88 @@ def bot(op):
         #-------------Fungsi Spam Finish---------------------#
 
         #-------------Fungsi Broadcast Start------------#
-            elif "Bc " in msg.text:
+            elif "Say " in msg.text:
 			if msg.from_ in admin:
-				bctxt = msg.text.replace("Bc ","")
+				bctxt = msg.text.replace("Say ","")
 				ki.sendText(msg.to,(bctxt))
 				kk.sendText(msg.to,(bctxt))
 				kc.sendText(msg.to,(bctxt))
        #--------------Fungsi Broadcast Finish-----------#
 
+            elif "Mid @" in msg.text:
+	      if msg.from_ in admin:
+                _name = msg.text.replace("Mid @","")
+                _nametarget = _name.rstrip(' ')
+                gs = cl.getGroup(msg.to)
+                for g in gs.members:
+                    if _nametarget == g.displayName:
+                        cl.sendText(msg.to, g.mid)
+                    else:
+                        pass
+                    
+
            
 #-----------------------------------------------
+
+            elif "Spam @" in msg.text:
+	      if msg.from_ in admin:
+                _name = msg.text.replace("Spam @","")
+                _nametarget = _name.rstrip(' ')
+                gs = cl.getGroup(msg.to)
+                for g in gs.members:
+                    if _nametarget == g.displayName:
+                       cl.sendText(g.mid,"Yo Bangsat")
+                       kk.sendText(g.mid,"Yo Bangsat")  
+                       ki.sendText(g.mid,"Yo Bangsat")  
+                       kc.sendText(g.mid,"Yo Bangsat")
+                       kk.sendText(g.mid,"Yo Bangsat")  
+                       ki.sendText(g.mid,"Yo Bangsat")  
+                       kc.sendText(g.mid,"Yo Bangsat")
+                       kk.sendText(g.mid,"Yo Bangsat")  
+                       ki.sendText(g.mid,"Yo Bangsat")  
+                       kc.sendText(g.mid,"Yo Bangsat")		
+                       cl.sendText(g.mid,"Yo Bangsat")
+                       kk.sendText(g.mid,"Yo Bangsat")  
+                       ki.sendText(g.mid,"Yo Bangsat")  
+                       kc.sendText(g.mid,"Yo Bangsat")
+                       kk.sendText(g.mid,"Yo Bangsat")  
+                       ki.sendText(g.mid,"Yo Bangsat")  
+                       kc.sendText(g.mid,"Yo Bangsat")
+                       kk.sendText(g.mid,"Yo Bangsat")  
+                       ki.sendText(g.mid,"Yo Bangsat")  
+                       kc.sendText(g.mid,"Yo Bangsat")
+                       cl.sendText(g.mid,"Yo Bangsat")
+                       kk.sendText(g.mid,"Yo Bangsat")  
+                       ki.sendText(g.mid,"Yo Bangsat")  
+                       kc.sendText(g.mid,"Yo Bangsat")
+                       kk.sendText(g.mid,"Yo Bangsat")  
+                       ki.sendText(g.mid,"Yo Bangsat")  
+                       kc.sendText(g.mid,"Yo Bangsat")
+                       kk.sendText(g.mid,"Yo Bangsat")  
+                       ki.sendText(g.mid,"Yo Bangsat")  
+                       kc.sendText(g.mid,"Yo Bangsat")		
+                       cl.sendText(g.mid,"Yo Bangsat")
+                       kk.sendText(g.mid,"Yo Bangsat")  
+                       ki.sendText(g.mid,"Yo Bangsat")  
+                       kc.sendText(g.mid,"Yo Bangsat")
+                       kk.sendText(g.mid,"Yo Bangsat")  
+                       ki.sendText(g.mid,"Yo Bangsat")  
+                       kc.sendText(g.mid,"Yo Bangsat")
+                       kk.sendText(g.mid,"Yo Bangsat")  
+                       ki.sendText(g.mid,"Yo Bangsat")  
+                       kc.sendText(g.mid,"Yo Bangsat")
+                       cl.sendText(msg.to, "Done")
+                       print " Spammed !"
+                       
 #-----------------------------------------------
+
+            elif msg.text in ["Creator","Pembuat bot"]:
+              if msg.from_ in admin:
+                msg.contentType = 13
+                msg.contentMetadata = {'mid': 'ufdb348d53532a57228f045ecfaa00f8d'}
+                cl.sendMessage(msg)
+                cl.sendText(msg.to,"My Creator")
+            
 
        #-------------Fungsi Respon Start---------------------#
             elif msg.text in ["Respon","respon","Absen","absen"]:
@@ -2211,7 +2266,7 @@ def bot(op):
       #-------------Fungsi Balesan Respon Finish---------------------#
 
        #-------------Fungsi Speedbot Start---------------------#
-            elif msg.text in ["Speedbot","speed"]:
+            elif msg.text in ["Speedbot","Speed"]:
 	      if msg.from_ in admin:
                 start = time.time()
                 cl.sendText(msg.to, "Please wait...")
