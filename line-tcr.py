@@ -2179,6 +2179,12 @@ def bot(op):
 				ki.sendText(msg.to,(bctxt))
 				kk.sendText(msg.to,(bctxt))
 				kc.sendText(msg.to,(bctxt))
+				ks.sendText(msg.to,(bctxt))
+				ka.sendText(msg.to,(bctxt))
+				kb.sendText(msg.to,(bctxt))
+				ko.sendText(msg.to,(bctxt))
+				ke.sendText(msg.to,(bctxt))
+				ku.sendText(msg.to,(bctxt))
        #--------------Fungsi Broadcast Finish-----------#
 
             elif "Mid @" in msg.text:
@@ -2276,6 +2282,11 @@ def bot(op):
             elif msg.text in ["Ada yg blom hadir"]:
 	      if msg.from_ in admin:
                 ki.sendText(msg.to,"Maafkan saya Aizen-sama")
+		
+		
+            elif msg.text in ["Laksanakan perintah"]:
+	      if msg.from_ in admin:
+                cl.sendText(msg.to,"Siap Aizen-sama, prioritas kami adalah melaksanakan perintah anda tuan")
 
       #-------------Fungsi Balesan Respon Finish---------------------#
 
