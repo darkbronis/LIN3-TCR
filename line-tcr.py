@@ -1937,6 +1937,16 @@ def bot(op):
                         ki.leaveGroup(msg.to)
                     except:
                         pass
+		
+	   elif msg.text in ["Bye No1"]:
+              if msg.from_ in admin:
+                if msg.toType == 2:
+                    ginfo = cl.getGroup(msg.to)
+                    try:
+                        cl.leaveGroup(msg.to)
+                    except:
+                        pass
+		
             elif msg.text in ["Bye No3"]:
               if msg.from_ in admin:
                 if msg.toType == 2:
