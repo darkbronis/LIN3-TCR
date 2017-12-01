@@ -1957,6 +1957,7 @@ def bot(op):
     
     #-------------Fungsi Tag All Start---------------#
             elif msg.text in ["Tangkap","Tagall","Culik"]:
+	      if msg.from_ in admin:
                   group = cl.getGroup(msg.to)
                   nama = [contact.mid for contact in group.members]
 
@@ -2077,7 +2078,7 @@ def bot(op):
                                     wait["blacklist"][target] = True
                                     f=codecs.open('st2__b.json','w','utf-8')
                                     json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
-                                    k3.sendText(msg.to,"Succes Cv")
+                                    k3.sendText(msg.to,"Success")
                                 except:
                                     ki.sendText(msg.to,"error")
             
@@ -2176,9 +2177,16 @@ def bot(op):
             elif "Say " in msg.text:
 			if msg.from_ in admin:
 				bctxt = msg.text.replace("Say ","")
+				cl.sendText(msg.to,(bctxt))
 				ki.sendText(msg.to,(bctxt))
 				kk.sendText(msg.to,(bctxt))
 				kc.sendText(msg.to,(bctxt))
+				ks.sendText(msg.to,(bctxt))
+				ka.sendText(msg.to,(bctxt))
+				kb.sendText(msg.to,(bctxt))
+				ko.sendText(msg.to,(bctxt))
+				ke.sendText(msg.to,(bctxt))
+				ku.sendText(msg.to,(bctxt))
        #--------------Fungsi Broadcast Finish-----------#
 
             elif "Mid @" in msg.text:
