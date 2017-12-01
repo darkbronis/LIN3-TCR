@@ -48,7 +48,7 @@ sys.setdefaultencoding('utf-8')
 helpMessage ="""●▬▬▬▬▬▬▬▬▬▬▬▬▬▬●\n ♞♞♞ɆsᵽȺđȺ ŦɇȺm♞♞♞\n●▬▬▬▬▬▬▬▬▬▬▬▬▬▬●
 
 ☯Command Bot (admin only)☯
-➤[Me]           Cek Akun Sendiri
+➤[Me]		Cek Akun Sendiri
 ➤[My mid]       Cek Akun Mid
 ➤[Bot?]         Cek Akun Bot
 ➤[Id Group]     Cek Id Group
@@ -101,7 +101,7 @@ Gmid = ko.getProfile().mid
 Hmid = ke.getProfile().mid
 Imid = ku.getProfile().mid
 
-Bots=[mid,Amid,Bmid,Cmid,Dmid,Emid,Fmid,Gmid,Hmid,Imid,"ufdb348d53532a57228f045ecfaa00f8d"]
+Bots=[mid,Amid,Bmid,Cmid,Dmid,Emid,Fmid,Gmid,Hmid,Imid,"ufdb348d53532a57228f045ecfaa00f8d","ue5060e54a4ed380dcafd0a2213592ad0","ua044c625da53442ff1040e30bfb1ee28","u93c7c5d46bc99b92c09faede05b7e8b6","u6660a5ab23e58650e107243d706ae727","ua7ab78360d15bb06bd61f4311ffc078d","u0db0acb862af364edda273a975ee589b","u0d3300929098eab5efb923ac32f8f7e3","u3c239a612e44e23e5ba887045dbbaa60","ubbc139cd574b65ec09610bf0f7cedfb1","u3e7a636610c82444e42a77384887441a","uf53069091adb4bad3b31bc516daa1086"]
 admin=["ufdb348d53532a57228f045ecfaa00f8d"]
 wait = {
     'contact':False,
@@ -1809,6 +1809,20 @@ def bot(op):
                     else:
                         cl.sendText(msg.to, "Status viewers belum diset.\nKetik「setpoint」 untuk memulai membaca sider ")
 #-----------------------------------------------
+
+            elif msg.text in ["Server","Kernel"]:
+                 if msg.from_ in admin:
+                     botKernel = subprocess.Popen(["uname","-svmo"], stdout=subprocess.PIPE).communicate()[0]
+                     cl.sendText(msg.to, botKernel)
+                     print "[Command]Kernel executed"
+		
+            elif "Apakah " in msg.text:
+				tanya = msg.text.replace("Apakah ","")
+				jawab = ("Ya","Tidak","Mana saya tahu bego")
+				jawaban = random.choice(jawab)
+				cl.sendText(msg.to,jawaban)
+				
+				
 
 #-----------------------------------------------
          #----------------Fungsi Join Group Start-----------------------#
