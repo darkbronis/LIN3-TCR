@@ -2297,6 +2297,10 @@ def bot(op):
             elif msg.text in ["Laksanakan perintah"]:
 	      if msg.from_ in admin:
                 cl.sendText(msg.to,"Siap Aizen-sama, prioritas kami adalah melaksanakan perintah anda tuan")
+		
+	    elif msg.text in ["Kerja bagus stark"]:
+	      if msg.from_ in admin:
+                cl.sendText(msg.to,"Terima kasih pujiannya Aizen-sama.")
 
       #-------------Fungsi Balesan Respon Finish---------------------#
 
