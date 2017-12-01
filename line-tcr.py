@@ -1967,6 +1967,7 @@ def bot(op):
     
     #-------------Fungsi Tag All Start---------------#
             elif msg.text in ["Tangkap","Tagall","Culik"]:
+	      if msg.from_ in admin:
                   group = cl.getGroup(msg.to)
                   nama = [contact.mid for contact in group.members]
 
